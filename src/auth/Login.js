@@ -17,7 +17,7 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
-    axios.post("http://localhost:4000/login", {
+    axios.post(`${process.env.REACT_APP_COFFEE_SHOP_API_URL}/login`, {
       username: this.state.username,
       password: this.state.password
     },
@@ -54,5 +54,4 @@ export default class Login extends Component {
       </div>
     )
   }
-
 }

@@ -10,7 +10,7 @@ export default class Dashboard extends Component {
         <div>
           <div>
             <h3>COMING SOON</h3>
-            <h5>{this.props.loggedInStatus}</h5>
+            <button onClick={this.props.handleLogout}>Log out</button>
           </div>
         </div>
       );

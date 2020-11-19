@@ -22,8 +22,6 @@ export default class Home extends Component {
           <h2>
             <code>Coffee shop</code>
           </h2>
-          <p><code>OPENING SOON</code></p>
-          <h5>{this.props.loggedInStatus}</h5>
         <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
       </div>
     );

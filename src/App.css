@@ -10,3 +10,18 @@
   color: white;
 }
 
+button {
+  width: 100%;
+  background-color: #AC9270;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Add a background color to the submit button on mouse-over */
+button:hover {
+  background-color: #AC8A70;
+}
