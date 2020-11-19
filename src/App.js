@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import './App.css';
-import Login from './auth/Login';
+import Dashboard from "./Dashboard";
+import Home from "./Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h2>
-          <code>Coffee shop</code>
-        </h2>
-        <p><code>OPENING SOON</code></p>
-      <Login />
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    };
+
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  handleLogin(data) {
+    this.setState({
+      loggedInStatus: "LOGGED_IN",
+      user: data.user
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route exact path={"/"} 
+                   render={props => (<Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />)}/>
+            <Route exact path={"/dashboard"}
+                   render={props => (<Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />)}/>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
-
-export default App;
 
 

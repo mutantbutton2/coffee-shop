@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import './Login.css';
+
 
 export default class Login extends Component {
   constructor(props){
@@ -15,6 +17,22 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
+    axios.post("http://localhost:4000/login", {
+      username: this.state.username,
+      password: this.state.password
+    },
+    {
+      withCredentials: true
+    }).then(response => {
+      console.log("login res", response.data.user)
+      if (response.data.user) {
+        this.props.handleSuccessfulAuth(response.data);
+      } else {
+        this.setState({login_error: response.data.error});
+      }
+    }).catch(error => {
+      console.log("login error", error)
+    });
     event.preventDefault();
   }
 
@@ -32,6 +50,7 @@ export default class Login extends Component {
           <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
           <button type="submit">Login</button>
         </form>
+        <h3>{this.state.login_error}</h3>
       </div>
     )
   }
