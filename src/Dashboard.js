@@ -4,14 +4,11 @@ import { Redirect } from "react-router-dom";
 export default class Dashboard extends Component {
 
   render() {
-    const loggedIn = this.props.loggedInStatus === "LOGGED_IN";
+    const loggedIn = this.props.checkLoggedIn();
     if (loggedIn) {
       return (
         <div>
-          <div>
-            <h3>COMING SOON</h3>
-            <button onClick={this.props.handleLogout}>Log out</button>
-          </div>
+          <button onClick={this.props.handleLogout}>Log out</button>
         </div>
       );
     } else {

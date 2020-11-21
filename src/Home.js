@@ -14,8 +14,6 @@ export default class Home extends Component {
     this.props.history.push("/dashboard");
   }
 
-
-
   render() {
     return (
       <div className="App-header">
