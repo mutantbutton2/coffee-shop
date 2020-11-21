@@ -1,6 +1,6 @@
 /* Style inputs */
-  input, select {
-  width: 100%;
+input, select {
+  width: 90%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -11,7 +11,7 @@
 
 /* Style the submit button */
 button[type=submit] {
-  width: 100%;
+  width: 90%;
   background-color: #AC9270;
   color: white;
   padding: 14px 20px;

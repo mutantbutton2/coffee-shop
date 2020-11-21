@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Login from "./auth/Login";
+import logo from "./logo.png"
 
 export default class Home extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ export default class Home extends Component {
   render() {
     return (
       <div className="App-header">
-          <h2>
-            <code>Coffee shop</code>
-          </h2>
+        <img class="fit" src={logo} />
+        <h2>
+          <code>coffee_shop();</code>
+        </h2>
         <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
       </div>
     );
